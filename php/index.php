@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
  *  @autor Michael Abplanalp
  *  @version März 2018
@@ -13,6 +13,7 @@ require("config.php");
 require("db_functions.php");
 require("appl_functions.php");
 
+//HUSO
 // Dispatching: Die über den Parameter "id" definierte Funktion ausführen
 $func = getId();
 // Falls  die verlangte Funktion nicht in der Liste der akzeptierten Funktionen ist, Default-Seite laden
