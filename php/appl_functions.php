@@ -18,5 +18,9 @@ function login() {
  * Beinhaltet die Anwendungslogik zur Registration
  */
 function registration() {
+    setValue("phpmodule", $_SERVER['PHP_SELF']."?id=".getValue("func"));
+    return runTemplate( "../templates/".getValue("func").".htm.php" );
 }
+
+
 ?>

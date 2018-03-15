@@ -1,0 +1,21 @@
+CREATE TABLE Users (
+    ID_User int AUTO_INCREMENT PRIMARY KEY,
+    Benutzername varchar(50) NOT NULL,
+    Email varchar(255) NOT NULL,
+    Passwort varchar(255) NOT NULL
+);
+
+CREATE TABLE Galerie(
+    ID_Galerie int AUTO_INCREMENT PRIMARY KEY,
+    User_ID int, 
+    CONSTRAINT FK_GalerieUsers FOREIGN KEY (User_ID)
+    REFERENCES Users(ID_User)
+);
+
+CREATE TABLE Bilder(
+    ID_Bild int AUTO_INCREMENT PRIMARY KEY,
+    Galerie_ID int,
+    Path varchar(255),
+    CONSTRAINT FK_BilderGalerie FOREIGN KEY (Galerie_ID)
+    REFERENCES Galerie(ID_Galerie)
+);
