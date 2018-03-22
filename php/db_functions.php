@@ -10,15 +10,15 @@
 
 function db_insert_Users($params) {
     $sql = "insert into Users (Benutzername, Email, Passwort)
-            values ('".escapeSpecialChars($params['benutzername'])."','".escapeSpecialChars($params['email'])."',
-					'".escapeSpecialChars($params['passwort'])."')";
+            values ('".$params['ben']."','".$params['email']."',
+					'".$params['password']."')";
     sqlQuery($sql);
 }
 
 function db_select_User($params) {
-    $sql = "select *
-			from kontakte 
-			where Benutzername ='".escapeSpecialChars($params['benutzername'])."';";
+    $sql = "select Passwort
+			from Users 
+			where Benutzername ='".$params['ben']."';";
     return sqlSelect($sql);
 }
 
