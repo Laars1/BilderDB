@@ -18,7 +18,7 @@ require("appl_functions.php");
 // Dispatching: Die über den Parameter "id" definierte Funktion ausführen
 $func = getId();
 // Falls  die verlangte Funktion nicht in der Liste der akzeptierten Funktionen ist, Default-Seite laden
-if($_SESSION['loggedIn'] == true && isset($_SESSION['username'])){
+if(!isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true && isset($_SESSION['username'])){
     $flist = getValue("cfg_func_member_list");
 } else {
     $flist = getValue("cfg_func_list");
