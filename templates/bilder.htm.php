@@ -23,14 +23,7 @@
 		<a class="navbar-brand">Bilder-DB</a>
       </div>
 	  <ul class="nav navbar-nav">
-        <?php 
-        if($_SESSION['loggedIn'] == true && isset($_SESSION['username'])){
-            echo getMenu(getValue("cfg_menu_member_list"));
-        }
-        else{
-            echo getMenu(getValue("cfg_menu_list")); 
-        }
-        ?>
+        <?php echo getMenu(getValue("cfg_menu_list")); ?>
       </ul>
 	</div>
   </nav>
@@ -40,10 +33,9 @@
   <div class="container" style="margin-top:20px">
 	<div class="row">
 	  <div class="col-md-offset-3 col-md-4 text-center small text-muted">
-	  	<?php 
-	  	var_dump($_SESSION['loggedIn']);
-	  	?>
+	  <p>Jeeee memberbereich</p>
 		&copy;&nbsp;Copyright gibb
+		
 	  </div>
 	</div>
   </div>

@@ -18,6 +18,19 @@ function login()
     return runTemplate("../templates/" . getValue("func") . ".htm.php");
 }
 
+function bilder(){
+    setValue("phpmodule", $_SERVER['PHP_SELF'] . "?id=" . getValue("func"));
+    return runTemplate("../templates/" . getValue("func") . ".htm.php");
+}
+
+function profil(){
+    
+}
+
+function logout(){
+    session_destroy();
+    redirect("registration");
+}
 /*
  * Beinhaltet die Anwendungslogik zur Registration
  */
@@ -47,20 +60,20 @@ function loginClicked()
     if (array_key_exists("ben", $_POST)) {
         if (strlen($_POST['ben']) > 0 && strlen($_POST['password']) > 0) {
             $pw = db_select_User($_POST);
-            var_dump($pw[0]['Passwort'], $_POST['password']);
             if (password_verify($_POST['password'], $pw[0]['Passwort'])) {
-                ?>
-<script>alert("JAAAAAAAAAAAAAAAA!");</script>
-<?php
+                $_SESSION['loggedIn'] = True;
+                $_SESSION['username'] = $_POST['ben'];
+                redirect("bilder");
+                
             } else {
                 ?>
-<script>alert("Benutzername oder Passwort falsch!");</script>
-<?php
+				<script>alert("Benutzername oder Passwort falsch!");</script>
+				<?php
             }
         } else {
             ?>
-<script>alert("Error!");</script>
-<?php
+			<script>alert("Error!");</script>
+			<?php
         }
     }
 }

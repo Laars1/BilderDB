@@ -8,16 +8,21 @@
  *  Im Beispiel wird die Funktion "show" ausgeführt.
  */
 session_start();
+
 require("basic_functions.php");
 require("config.php");
 require("db_functions.php");
 require("appl_functions.php");
 
-//HUSO
+
 // Dispatching: Die über den Parameter "id" definierte Funktion ausführen
 $func = getId();
 // Falls  die verlangte Funktion nicht in der Liste der akzeptierten Funktionen ist, Default-Seite laden
-$flist = getValue("cfg_func_list");
+if($_SESSION['loggedIn'] == true && isset($_SESSION['username'])){
+    $flist = getValue("cfg_func_member_list");
+} else {
+    $flist = getValue("cfg_func_list");
+}
 if (!in_array($func, $flist)) $func = $flist[0];
 // Aktive Funktion global speichern, da diese später noch verwendet wird
 setValue("func", $func);
