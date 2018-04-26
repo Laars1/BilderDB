@@ -7,9 +7,9 @@
 
 // Funktionen
 
-    setValue("cfg_func_member_list", array("bilder","profil" , "logout"));
+    setValue("cfg_func_member_list", array("forumsthemen","thema" ,"beitrag_add" ,"logout"));
     // Inhalt des Menus
-    setValue("cfg_menu_member_list", array("bilder"=>"BilderDB","profil"=>"Profil", "logout"=>"Logout"));
+    setValue("cfg_menu_member_list", array("forumsthemen"=>"Forumsthemen","thema"=>"Thema bearbeiten","beitrag_add"=>"Beitrag erstellen", "logout"=>"Logout"));
 
     setValue("cfg_func_list", array("login","registration"));
     // Inhalt des Menus
